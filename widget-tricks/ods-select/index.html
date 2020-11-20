@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>
         
-ods-map: Refine &amp; Zoom &ndash; Codelibrary
+ods-select &ndash; Codelibrary
 
     </title>
 
@@ -211,7 +211,7 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
                     </li>
                     
                     <li>
-                        <a class="is-active" href="https://codelibrary.opendatasoft.com/widget-tricks/ods-map-tricks/">ods-map: Refine &amp; Zoom</a>
+                        <a class="" href="https://codelibrary.opendatasoft.com/widget-tricks/ods-map-tricks/">ods-map: Refine &amp; Zoom</a>
                     </li>
                     
                     <li>
@@ -227,7 +227,7 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
                     </li>
                     
                     <li>
-                        <a class="" href="https://codelibrary.opendatasoft.com/widget-tricks/ods-select/">ods-select</a>
+                        <a class="is-active" href="https://codelibrary.opendatasoft.com/widget-tricks/ods-select/">ods-select</a>
                     </li>
                     
                     <li>
@@ -311,10 +311,12 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
 <section>
     <div class="content-header container is-max-desktop mb-5">
         <div class="content">
-            <h1 class="title" id="ods-map-refine--zoom">
-  ods-map: Refine &amp; Zoom
+            <h1 class="title" id="ods-select">
+  ods-select
   
 </h1>
+<p>ods-select allows the selection of one or more items from a list of options. This resource present different combination with ods-facet-results or ods-analysis to feed the selection list.</p>
+<p><a href="https://help.opendatasoft.com/widgets/#/api/ods-widgets.directive:odsSelect">ods-select widget documentation</a></p>
 
         </div>
     </div>
@@ -322,16 +324,15 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
     <div class="container">
         <div class="box box-example">
           <div class="content">
-            <h2 class="title" id="map-as-a-selector">
-  Map as a selector
+            <h2 class="title" id="fed-by-a-static-manually-declared-list">
+  Fed by a static, manually declared list
   
-    <a class="is-link" href="#map-as-a-selector">
+    <a class="is-link" href="#fed-by-a-static-manually-declared-list">
       <img src="/img/fas-link.svg" />
     </a>
   
 </h2>
-<p>In this example, the french administrative regions are displayed first and the user click refines on the departments dataset. On the right section you can observe the applied filter on departments context and the list of departments returned. The &lsquo;regions&rsquo; context is not affected and is not filtered. Note that it would also be possible to apply the filter on regions context, to do so, please have a look to the next resource of this page.</p>
-<p><em>If your layer is displayed as raw or aggregation, you can configure a layer so that a click on an item triggers a refine on another context, using <strong>refineOnClickContext</strong>. One or more contexts can be defined:</em></p>
+<p><code>ods-select</code> accept any kind of source as long as it&rsquo;s a <code>json array</code>. It can be an array of strings, but also an array of object and ods-select <code>label-modifier</code> and <code>value-modifier</code> can be used to specify which key in the array item to use for, respectively the label and the field value.</p>
 
           </div>
           
@@ -342,7 +343,7 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
     
     
 
-    <form id="form-ods-map-refine-zoom-1"
+    <form id="form-ods-select-1"
           action="https://codepen.io/pen/define"
           method="POST"
           target="_blank">
@@ -352,14 +353,14 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
                "title": "New Pen!",
                "head": &#34;\u003clink rel=\&#34;stylesheet\&#34; href=\&#34;https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css\&#34;\u003e\n\u003clink rel=\&#34;stylesheet\&#34; href=\&#34;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\&#34;\u003e\n\u003clink rel=\&#34;stylesheet\&#34; href=\&#34;https://static.opendatasoft.com/ods-widgets/latest-v2/ods-widgets.css\&#34;\u003e\n\n\u003c!-- ODS Platform CSS - must be hosted on static : WIP --\u003e\n\u003clink rel=\&#34;stylesheet\&#34; href=\&#34;https://s3-us-west-2.amazonaws.com/s.cdpn.io/4124551/ods.css\&#34;\u003e\n\u003clink rel=\&#34;stylesheet\&#34; href=\&#34;https://codelibrary.opendatasoft.com/css/theme.css\&#34;\u003e\n\n\u003cscript src=\&#34;//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js\&#34;\u003e\u003c/script\u003e\n\u003cscript src=\&#34;//cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.0/angular.js\&#34;\u003e\u003c/script\u003e\n\u003cscript src=\&#34;//cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.8.2/angular-sanitize.min.js\&#34;\u003e\u003c/script\u003e\n\u003cscript src=\&#34;https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.8.2/angular-locale_fr.min.js\&#34;\u003e\u003c/script\u003e\n\u003cscript type=\&#34;text/javascript\&#34; src=\&#34;https://static.opendatasoft.com/ods-widgets/latest-v2/ods-widgets.js\&#34;\u003e\u003c/script\u003e\n\n\u003cscript type=\&#34;text/javascript\&#34; src=\&#34;https://codelibrary.opendatasoft.com/js/platform-filters.js\&#34;\u003e\u003c/script\u003e\n\u003cscript type=\&#34;text/javascript\&#34; src=\&#34;https://codelibrary.opendatasoft.com/js/ods-catalog-card.js\&#34;\u003e\u003c/script\u003e\n\n\u003cscript type=\&#34;text/javascript\&#34;\u003e\n    angular.module(&#39;ods-widgets&#39;).config(function (ODSWidgetsConfigProvider) {\n        ODSWidgetsConfigProvider.setConfig({\n            \&#34;defaultDomain\&#34;: \&#34;https://userclub.opendatasoft.com/\&#34;,\n            \&#34;basemaps\&#34;: [\n                {\n                    \&#34;provider\&#34;: \&#34;jawg.light\&#34;,\n                    \&#34;label\&#34;: \&#34;Jawg Light\&#34;,\n                    \&#34;jawg_apikey\&#34;: \&#34;opendatasoft-community\&#34;\n                }\n            ],\n            \&#34;themes\&#34;: {\n                &#39;default&#39;: {\n                    &#39;url&#39;: &#39;/img/ods.svg&#39;\n                },\n                &#39;Santé&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/doctors.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Culture, Patrimoine&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/culture.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Éducation, Formation, Recherche, Enseignement&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/college.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Environment&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/leaf.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Transports, Déplacements&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/train_station.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Aménagement du territoire, Urbanisme, Bâtiments, Équipements, Logement&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/townplanning.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Économie, Business, PME, Développement économique, Emploi&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/economy.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Administration, Gouvernement, Finances publiques, Citoyenneté&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/administration.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Justice, Sécurité, Police, Crime&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/court.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Sport, Loisirs&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/soccer.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Hébergement, Restauration&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/accommodation.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Services, Social&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/social.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Checklist&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/copyshop.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Usages&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/bike.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                }\n            },\n            \&#34;mapPrependAttribution\&#34;: \&#34;Jawg apikey NOT suitable for production\&#34;\n        });\n    });\n\u003c/script\u003e\n\n\u003cscript type=\&#34;text/javascript\&#34;\u003e\n    document.addEventListener(\&#34;DOMContentLoaded\&#34;, function () {\n        document.querySelectorAll(&#39;a[href=\&#34;#\&#34;]&#39;).forEach((el) =\u003e {\n            el.addEventListener(&#39;click&#39;, (event) =\u003e {\n                event.preventDefault();\n            });\n        })\n    });\n\u003c/script\u003e\n&#34;,
                "editors": 110,
-               "html": &#34;\u003cdiv ng-app=\&#34;ods-widgets\&#34;\u003e\n\u003cdiv class=\&#34;row ods-box\&#34;\u003e\n    \u003cods-dataset-context context=\&#34;regions,depts\&#34;\n                         regions-dataset=\&#34;regions-et-collectivites-doutre-mer-france\&#34;\n                         regions-domain=\&#34;userclub\&#34;\n                         depts-dataset=\&#34;departements-et-collectivites-doutre-mer-france\&#34;\n                         depts-domain=\&#34;userclub\&#34;\u003e\n        \u003cdiv class=\&#34;col-md-8\&#34;\u003e\n            \u003cods-map style=\&#34;height:560px\&#34; scroll-wheel-zoom=\&#34;false\&#34;\u003e\n                \u003cods-map-layer context=\&#34;regions\&#34;\n                               refine-on-click-context=\&#34;depts\&#34;\n                               refine-on-click-depts-map-field=\&#34;reg_code\&#34;\n                               refine-on-click-depts-context-field=\&#34;reg_code\&#34;\n                               refine-on-click-depts-replace-refine=\&#34;true\&#34;\n                               color=\&#34;#3D3D3D\&#34;\u003e\n                \u003c/ods-map-layer\u003e\n            \u003c/ods-map\u003e\n        \u003c/div\u003e\n        \u003cdiv class=\&#34;col-md-4\&#34;\u003e\n            \u003cdiv ng-if=\&#34;!depts.parameters[&#39;refine.reg_code&#39;]\&#34;\u003e\n                \u003ch3 style=\&#34;font-weight:600; margin-top: 40px\&#34;\u003e\n                    Selectionnez une région sur la carte\n                \u003c/h3\u003e\n            \u003c/div\u003e\n            \u003cdiv ng-if=\&#34;depts.parameters[&#39;refine.reg_code&#39;]\&#34;\u003e\n                  \u003cspan class=\&#34;ods-button\&#34; ng-click=\&#34;depts.parameters = {};\&#34;\u003e\n                      Supprimer le filtre\n                  \u003c/span\u003e\n                \u003ch3\u003eFiltre actif : code_reg = {{ depts.parameters[&#39;refine.reg_code&#39;] }}\n                \u003c/h3\u003e\n                \u003ch2\u003e\n                    Liste des départements\n                \u003c/h2\u003e\n                \u003ch4 ng-repeat=\&#34;item in items\&#34; ods-results=\&#34;items\&#34; ods-results-context=\&#34;depts\&#34;\u003e\n                    {{ item.fields.dep_name }}\n                \u003c/h4\u003e\n            \u003c/div\u003e\n        \u003c/div\u003e\n    \u003c/ods-dataset-context\u003e\n\u003c/div\u003e\n\u003c/div\u003e&#34;,
-               "css": &#34;&#34; }'>
+               "html": &#34;\u003cdiv ng-app=\&#34;ods-widgets\&#34;\u003e\n\u003cdiv class=\&#34;row\&#34;\u003e\n    \u003cdiv class=\&#34;col-md-4 col-md-offset-2 col-sm-6 mb\&#34; ng-if=\&#34;true\&#34;\n         ng-init=\&#34;names = [&#39;John&#39;,&#39;George&#39;,&#39;Harry&#39;,&#39;Meredith&#39;]; selection\&#34;\u003e\n        \u003ch3\u003e\n            Simplest mode, with a string array\n        \u003c/h3\u003e\n        \u003cods-select options=\&#34;names\&#34;\n                    selected-values=\&#34;selection\&#34;\n                    placeholder=\&#34;Pick a name\&#34;\u003e\u003c/ods-select\u003e\n        \u003ch4\u003eInput:\u003c/h4\u003e\n        \u003cpre ng-bind=\&#34;names|json\&#34;\u003e\u003c/pre\u003e\n        \u003ch4\u003eSelection:\u003c/h4\u003e\n        \u003cpre ng-bind=\&#34;selection|json\&#34;\u003e\u003c/pre\u003e\n    \u003c/div\u003e\n    \u003cdiv class=\&#34;col-md-4 col-sm-6 mb\&#34; ng-if=\&#34;true\&#34;\n         ng-init=\&#34;\n            names = [\n                {name:&#39;Mister John&#39;,id:&#39;john&#39;},\n                {name:&#39;King George&#39;,id:&#39;george&#39;},\n                {name:&#39;Prince Harry&#39;,id:&#39;harry&#39;},\n                {name:&#39;Lady Meredith&#39;,id:&#39;meredith&#39;}\n            ];\n            selection\&#34;\u003e\n        \u003ch3\u003e\n            Modifiers options with json object array\n        \u003c/h3\u003e\n        \u003cods-select options=\&#34;names\&#34;\n                    selected-values=\&#34;selection\&#34;\n                    label-modifier=\&#34;name\&#34;\n                    value-modifier=\&#34;id\&#34;\n                    placeholder=\&#34;Pick a name\&#34;\u003e\u003c/ods-select\u003e\n        \u003ch4\u003eInput:\u003c/h4\u003e\n        \u003cpre ng-bind=\&#34;names|json\&#34;\u003e\u003c/pre\u003e\n        \u003ch4\u003eSelection:\u003c/h4\u003e\n        \u003cpre ng-bind=\&#34;selection|json\&#34;\u003e\u003c/pre\u003e\n    \u003c/div\u003e\n\u003c/div\u003e\u003c/div\u003e&#34;,
+               "css": &#34;/** DO NOT COPY **/\n/* the CSS is only for a better reading of the demo */\n.mb {\n    margin-bottom: 30px;\n}\nh3 {\n    height: 60px;\n}\n.odswidget-select {\n    margin-bottom: 25px;\n}&#34; }'>
     </form>
 </div>
 
 <div class="ods-content">
     <section class="box box-live-example">
-      <iframe id="iframe-ods-map-refine-zoom-1"
+      <iframe id="iframe-ods-select-1"
               width="100%" height="100%"
               src="about:blank"
               srcdoc="
@@ -470,49 +471,56 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
         </head>
         <body>
         <div ng-app='ods-widgets'>
-            &lt;div class=&#34;row ods-box&#34;&gt;
-    &lt;ods-dataset-context context=&#34;regions,depts&#34;
-                         regions-dataset=&#34;regions-et-collectivites-doutre-mer-france&#34;
-                         regions-domain=&#34;userclub&#34;
-                         depts-dataset=&#34;departements-et-collectivites-doutre-mer-france&#34;
-                         depts-domain=&#34;userclub&#34;&gt;
-        &lt;div class=&#34;col-md-8&#34;&gt;
-            &lt;ods-map style=&#34;height:560px&#34; scroll-wheel-zoom=&#34;false&#34;&gt;
-                &lt;ods-map-layer context=&#34;regions&#34;
-                               refine-on-click-context=&#34;depts&#34;
-                               refine-on-click-depts-map-field=&#34;reg_code&#34;
-                               refine-on-click-depts-context-field=&#34;reg_code&#34;
-                               refine-on-click-depts-replace-refine=&#34;true&#34;
-                               color=&#34;#3D3D3D&#34;&gt;
-                &lt;/ods-map-layer&gt;
-            &lt;/ods-map&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;col-md-4&#34;&gt;
-            &lt;div ng-if=&#34;!depts.parameters[&#39;refine.reg_code&#39;]&#34;&gt;
-                &lt;h3 style=&#34;font-weight:600; margin-top: 40px&#34;&gt;
-                    Selectionnez une région sur la carte
-                &lt;/h3&gt;
-            &lt;/div&gt;
-            &lt;div ng-if=&#34;depts.parameters[&#39;refine.reg_code&#39;]&#34;&gt;
-                  &lt;span class=&#34;ods-button&#34; ng-click=&#34;depts.parameters = {};&#34;&gt;
-                      Supprimer le filtre
-                  &lt;/span&gt;
-                &lt;h3&gt;Filtre actif : code_reg = {{ depts.parameters[&#39;refine.reg_code&#39;] }}
-                &lt;/h3&gt;
-                &lt;h2&gt;
-                    Liste des départements
-                &lt;/h2&gt;
-                &lt;h4 ng-repeat=&#34;item in items&#34; ods-results=&#34;items&#34; ods-results-context=&#34;depts&#34;&gt;
-                    {{ item.fields.dep_name }}
-                &lt;/h4&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/ods-dataset-context&gt;
+            &lt;div class=&#34;row&#34;&gt;
+    &lt;div class=&#34;col-md-4 col-md-offset-2 col-sm-6 mb&#34; ng-if=&#34;true&#34;
+         ng-init=&#34;names = [&#39;John&#39;,&#39;George&#39;,&#39;Harry&#39;,&#39;Meredith&#39;]; selection&#34;&gt;
+        &lt;h3&gt;
+            Simplest mode, with a string array
+        &lt;/h3&gt;
+        &lt;ods-select options=&#34;names&#34;
+                    selected-values=&#34;selection&#34;
+                    placeholder=&#34;Pick a name&#34;&gt;&lt;/ods-select&gt;
+        &lt;h4&gt;Input:&lt;/h4&gt;
+        &lt;pre ng-bind=&#34;names|json&#34;&gt;&lt;/pre&gt;
+        &lt;h4&gt;Selection:&lt;/h4&gt;
+        &lt;pre ng-bind=&#34;selection|json&#34;&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;col-md-4 col-sm-6 mb&#34; ng-if=&#34;true&#34;
+         ng-init=&#34;
+            names = [
+                {name:&#39;Mister John&#39;,id:&#39;john&#39;},
+                {name:&#39;King George&#39;,id:&#39;george&#39;},
+                {name:&#39;Prince Harry&#39;,id:&#39;harry&#39;},
+                {name:&#39;Lady Meredith&#39;,id:&#39;meredith&#39;}
+            ];
+            selection&#34;&gt;
+        &lt;h3&gt;
+            Modifiers options with json object array
+        &lt;/h3&gt;
+        &lt;ods-select options=&#34;names&#34;
+                    selected-values=&#34;selection&#34;
+                    label-modifier=&#34;name&#34;
+                    value-modifier=&#34;id&#34;
+                    placeholder=&#34;Pick a name&#34;&gt;&lt;/ods-select&gt;
+        &lt;h4&gt;Input:&lt;/h4&gt;
+        &lt;pre ng-bind=&#34;names|json&#34;&gt;&lt;/pre&gt;
+        &lt;h4&gt;Selection:&lt;/h4&gt;
+        &lt;pre ng-bind=&#34;selection|json&#34;&gt;&lt;/pre&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
-
         </div>
         <style type='text/css'>
-            
+            /** DO NOT COPY **/
+/* the CSS is only for a better reading of the demo */
+.mb {
+    margin-bottom: 30px;
+}
+h3 {
+    height: 60px;
+}
+.odswidget-select {
+    margin-bottom: 25px;
+}
         </style>
         </body>
         ">
@@ -526,8 +534,15 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
                     <ul class="buttons has-addons js-tablist">
                         <li class="button is-secondary is-outlined js-tablist__item">
                             <a class="js-tablist__link"
-                               href="#code-ods-map-refine-zoom-1-html-content">
+                               href="#code-ods-select-1-html-content">
                                 HTML
+                            </a>
+                        </li>
+                        
+                        <li class="button is-secondary is-outlined js-tablist__item">
+                            <a class="js-tablist__link"
+                               href="#code-ods-select-1-css-content">
+                                CSS
                             </a>
                         </li>
                         
@@ -541,7 +556,7 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
                    aria-role="link"
                    rel="noopener"
                    title="Edit on CodePen, open a new tab"
-                   onclick="document.getElementById('form-ods-map-refine-zoom-1').submit()">
+                   onclick="document.getElementById('form-ods-select-1').submit()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-edit">
@@ -555,48 +570,62 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
 
         <div class="tab-content">
             <div class="js-tabcontent"
-                 id="code-ods-map-refine-zoom-1-html-content">
+                 id="code-ods-select-1-html-content">
                 <div class="highlight">
-                    <pre class="language-html" data-lang="html"><code>&lt;div class=&#34;row ods-box&#34;&gt;
-    &lt;ods-dataset-context context=&#34;regions,depts&#34;
-                         regions-dataset=&#34;regions-et-collectivites-doutre-mer-france&#34;
-                         regions-domain=&#34;userclub&#34;
-                         depts-dataset=&#34;departements-et-collectivites-doutre-mer-france&#34;
-                         depts-domain=&#34;userclub&#34;&gt;
-        &lt;div class=&#34;col-md-8&#34;&gt;
-            &lt;ods-map style=&#34;height:560px&#34; scroll-wheel-zoom=&#34;false&#34;&gt;
-                &lt;ods-map-layer context=&#34;regions&#34;
-                               refine-on-click-context=&#34;depts&#34;
-                               refine-on-click-depts-map-field=&#34;reg_code&#34;
-                               refine-on-click-depts-context-field=&#34;reg_code&#34;
-                               refine-on-click-depts-replace-refine=&#34;true&#34;
-                               color=&#34;#3D3D3D&#34;&gt;
-                &lt;/ods-map-layer&gt;
-            &lt;/ods-map&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;col-md-4&#34;&gt;
-            &lt;div ng-if=&#34;!depts.parameters[&#39;refine.reg_code&#39;]&#34;&gt;
-                &lt;h3 style=&#34;font-weight:600; margin-top: 40px&#34;&gt;
-                    Selectionnez une région sur la carte
-                &lt;/h3&gt;
-            &lt;/div&gt;
-            &lt;div ng-if=&#34;depts.parameters[&#39;refine.reg_code&#39;]&#34;&gt;
-                  &lt;span class=&#34;ods-button&#34; ng-click=&#34;depts.parameters = {};&#34;&gt;
-                      Supprimer le filtre
-                  &lt;/span&gt;
-                &lt;h3&gt;Filtre actif : code_reg = {{ depts.parameters[&#39;refine.reg_code&#39;] }}
-                &lt;/h3&gt;
-                &lt;h2&gt;
-                    Liste des départements
-                &lt;/h2&gt;
-                &lt;h4 ng-repeat=&#34;item in items&#34; ods-results=&#34;items&#34; ods-results-context=&#34;depts&#34;&gt;
-                    {{ item.fields.dep_name }}
-                &lt;/h4&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/ods-dataset-context&gt;
-&lt;/div&gt;
-</code></pre>
+                    <pre class="language-html" data-lang="html"><code>&lt;div class=&#34;row&#34;&gt;
+    &lt;div class=&#34;col-md-4 col-md-offset-2 col-sm-6 mb&#34; ng-if=&#34;true&#34;
+         ng-init=&#34;names = [&#39;John&#39;,&#39;George&#39;,&#39;Harry&#39;,&#39;Meredith&#39;]; selection&#34;&gt;
+        &lt;h3&gt;
+            Simplest mode, with a string array
+        &lt;/h3&gt;
+        &lt;ods-select options=&#34;names&#34;
+                    selected-values=&#34;selection&#34;
+                    placeholder=&#34;Pick a name&#34;&gt;&lt;/ods-select&gt;
+        &lt;h4&gt;Input:&lt;/h4&gt;
+        &lt;pre ng-bind=&#34;names|json&#34;&gt;&lt;/pre&gt;
+        &lt;h4&gt;Selection:&lt;/h4&gt;
+        &lt;pre ng-bind=&#34;selection|json&#34;&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;col-md-4 col-sm-6 mb&#34; ng-if=&#34;true&#34;
+         ng-init=&#34;
+            names = [
+                {name:&#39;Mister John&#39;,id:&#39;john&#39;},
+                {name:&#39;King George&#39;,id:&#39;george&#39;},
+                {name:&#39;Prince Harry&#39;,id:&#39;harry&#39;},
+                {name:&#39;Lady Meredith&#39;,id:&#39;meredith&#39;}
+            ];
+            selection&#34;&gt;
+        &lt;h3&gt;
+            Modifiers options with json object array
+        &lt;/h3&gt;
+        &lt;ods-select options=&#34;names&#34;
+                    selected-values=&#34;selection&#34;
+                    label-modifier=&#34;name&#34;
+                    value-modifier=&#34;id&#34;
+                    placeholder=&#34;Pick a name&#34;&gt;&lt;/ods-select&gt;
+        &lt;h4&gt;Input:&lt;/h4&gt;
+        &lt;pre ng-bind=&#34;names|json&#34;&gt;&lt;/pre&gt;
+        &lt;h4&gt;Selection:&lt;/h4&gt;
+        &lt;pre ng-bind=&#34;selection|json&#34;&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+            
+            <div class="js-tabcontent"
+                 id="code-ods-select-1-css-content">
+                <div class="highlight">
+                    <pre class="language-css" data-lang="css"><code>/** DO NOT COPY **/
+/* the CSS is only for a better reading of the demo */
+.mb {
+    margin-bottom: 30px;
+}
+h3 {
+    height: 60px;
+}
+.odswidget-select {
+    margin-bottom: 25px;
+}</code></pre>
                 </div>
             </div>
             
@@ -607,7 +636,7 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
 <script type="text/javascript">
     window.addEventListener("DOMContentLoaded", () => {
         var loopId = setInterval(() => {
-            iframeId = "iframe-ods-map-refine-zoom-1";
+            iframeId = "iframe-ods-select-1";
             iframe = document.getElementById(iframeId);
              
             size =  null 
@@ -643,16 +672,19 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
     <div class="container">
         <div class="box box-example">
           <div class="content">
-            <h2 class="title" id="map-drilldown">
-  Map drilldown
+            <h2 class="title" id="fed-by-a-facet-via-ods-facet-results-widget">
+  Fed by a facet (via ods-facet-results widget)
   
-    <a class="is-link" href="#map-drilldown">
+    <a class="is-link" href="#fed-by-a-facet-via-ods-facet-results-widget">
       <img src="/img/fas-link.svg" />
     </a>
   
 </h2>
-<p>In this example, the french administrative regions are displayed first, the user click refines on both regions and departments datasets and will then display departments in the selected region. Another click on a departement will refine departements and cities datasets and display cities in this department.</p>
-<p><em>If your layer is displayed as <strong>raw</strong> or <strong>aggregation</strong>, you can configure a layer so that a click on an item triggers a refine on another context, using refineOnClickContext. One or more contexts can be defined:</em></p>
+<p><code>ods-facet-results</code> enumerates the values (&ldquo;categories&rdquo;) of a facet, and exposes it in a variable. this variable can then be the option source of <code>ods-select</code>.</p>
+<p><a href="https://help.opendatasoft.com/widgets/#/api/ods-widgets.directive:odsFacetResults">ods-facet-results widget documentation</a></p>
+<blockquote>
+<p>Note that facets are limited to the first 100 results, it&rsquo;s then suitable for categories, types, properties that have a small set of distinct values</p>
+</blockquote>
 
           </div>
           
@@ -663,7 +695,7 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
     
     
 
-    <form id="form-ods-map-refine-zoom-2"
+    <form id="form-ods-select-2"
           action="https://codepen.io/pen/define"
           method="POST"
           target="_blank">
@@ -673,14 +705,14 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
                "title": "New Pen!",
                "head": &#34;\u003clink rel=\&#34;stylesheet\&#34; href=\&#34;https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css\&#34;\u003e\n\u003clink rel=\&#34;stylesheet\&#34; href=\&#34;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\&#34;\u003e\n\u003clink rel=\&#34;stylesheet\&#34; href=\&#34;https://static.opendatasoft.com/ods-widgets/latest-v2/ods-widgets.css\&#34;\u003e\n\n\u003c!-- ODS Platform CSS - must be hosted on static : WIP --\u003e\n\u003clink rel=\&#34;stylesheet\&#34; href=\&#34;https://s3-us-west-2.amazonaws.com/s.cdpn.io/4124551/ods.css\&#34;\u003e\n\u003clink rel=\&#34;stylesheet\&#34; href=\&#34;https://codelibrary.opendatasoft.com/css/theme.css\&#34;\u003e\n\n\u003cscript src=\&#34;//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js\&#34;\u003e\u003c/script\u003e\n\u003cscript src=\&#34;//cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.0/angular.js\&#34;\u003e\u003c/script\u003e\n\u003cscript src=\&#34;//cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.8.2/angular-sanitize.min.js\&#34;\u003e\u003c/script\u003e\n\u003cscript src=\&#34;https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.8.2/angular-locale_fr.min.js\&#34;\u003e\u003c/script\u003e\n\u003cscript type=\&#34;text/javascript\&#34; src=\&#34;https://static.opendatasoft.com/ods-widgets/latest-v2/ods-widgets.js\&#34;\u003e\u003c/script\u003e\n\n\u003cscript type=\&#34;text/javascript\&#34; src=\&#34;https://codelibrary.opendatasoft.com/js/platform-filters.js\&#34;\u003e\u003c/script\u003e\n\u003cscript type=\&#34;text/javascript\&#34; src=\&#34;https://codelibrary.opendatasoft.com/js/ods-catalog-card.js\&#34;\u003e\u003c/script\u003e\n\n\u003cscript type=\&#34;text/javascript\&#34;\u003e\n    angular.module(&#39;ods-widgets&#39;).config(function (ODSWidgetsConfigProvider) {\n        ODSWidgetsConfigProvider.setConfig({\n            \&#34;defaultDomain\&#34;: \&#34;https://userclub.opendatasoft.com/\&#34;,\n            \&#34;basemaps\&#34;: [\n                {\n                    \&#34;provider\&#34;: \&#34;jawg.light\&#34;,\n                    \&#34;label\&#34;: \&#34;Jawg Light\&#34;,\n                    \&#34;jawg_apikey\&#34;: \&#34;opendatasoft-community\&#34;\n                }\n            ],\n            \&#34;themes\&#34;: {\n                &#39;default&#39;: {\n                    &#39;url&#39;: &#39;/img/ods.svg&#39;\n                },\n                &#39;Santé&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/doctors.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Culture, Patrimoine&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/culture.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Éducation, Formation, Recherche, Enseignement&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/college.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Environment&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/leaf.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Transports, Déplacements&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/train_station.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Aménagement du territoire, Urbanisme, Bâtiments, Équipements, Logement&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/townplanning.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Économie, Business, PME, Développement économique, Emploi&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/economy.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Administration, Gouvernement, Finances publiques, Citoyenneté&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/administration.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Justice, Sécurité, Police, Crime&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/court.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Sport, Loisirs&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/soccer.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Hébergement, Restauration&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/accommodation.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Services, Social&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/social.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Checklist&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/copyshop.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Usages&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/bike.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                }\n            },\n            \&#34;mapPrependAttribution\&#34;: \&#34;Jawg apikey NOT suitable for production\&#34;\n        });\n    });\n\u003c/script\u003e\n\n\u003cscript type=\&#34;text/javascript\&#34;\u003e\n    document.addEventListener(\&#34;DOMContentLoaded\&#34;, function () {\n        document.querySelectorAll(&#39;a[href=\&#34;#\&#34;]&#39;).forEach((el) =\u003e {\n            el.addEventListener(&#39;click&#39;, (event) =\u003e {\n                event.preventDefault();\n            });\n        })\n    });\n\u003c/script\u003e\n&#34;,
                "editors": 110,
-               "html": &#34;\u003cdiv ng-app=\&#34;ods-widgets\&#34;\u003e\n\u003cdiv class=\&#34;row ods-box\&#34;\u003e\n    \u003cods-dataset-context context=\&#34;regions,depts,comm\&#34;\n                         regions-domain=\&#34;userclub\&#34;\n                         regions-dataset=\&#34;regions-et-collectivites-doutre-mer-france\&#34;\n                         depts-domain=\&#34;userclub\&#34;\n                         depts-dataset=\&#34;departements-et-collectivites-doutre-mer-france\&#34;\n                         comm-domain=\&#34;userclub\&#34;\n                         comm-dataset=\&#34;communes-et-arrondissements-municipaux-france\&#34;\u003e\n        \u003cdiv class=\&#34;col-md-8\&#34;\u003e\n            \u003cods-map style=\&#34;height:560px\&#34; scroll-wheel-zoom=\&#34;false\&#34;\u003e\n                \u003cods-map-layer context=\&#34;regions\&#34;\n                               refine-on-click-context=\&#34;[regions,depts]\&#34;\n                               refine-on-click-regions-map-field=\&#34;reg_code\&#34;\n                               refine-on-click-regions-context-field=\&#34;reg_code\&#34;\n                               refine-on-click-depts-map-field=\&#34;reg_code\&#34;\n                               refine-on-click-depts-context-field=\&#34;reg_code\&#34;\n                               color=\&#34;#3D3D3D\&#34;\n                               show-if=\&#34;!regions.parameters[&#39;refine.reg_code&#39;]\&#34;\u003e\n                \u003c/ods-map-layer\u003e\n                \u003cods-map-layer context=\&#34;depts\&#34;\n                               refine-on-click-context=\&#34;[depts,comm]\&#34;\n                               refine-on-click-depts-map-field=\&#34;dep_code\&#34;\n                               refine-on-click-depts-context-field=\&#34;dep_code\&#34;\n                               refine-on-click-comm-map-field=\&#34;dep_code\&#34;\n                               refine-on-click-comm-context-field=\&#34;dep_code\&#34;\n                               color=\&#34;#3D3D3D\&#34;\n                               show-if=\&#34;depts.parameters[&#39;refine.reg_code&#39;] \u0026\u0026 !comm.parameters[&#39;refine.dep_code&#39;]\&#34;\u003e\n                \u003c/ods-map-layer\u003e\n                \u003cods-map-layer context=\&#34;comm\&#34;\n                               show-if=\&#34;comm.parameters[&#39;refine.dep_code&#39;]\&#34;\u003e\n                \u003c/ods-map-layer\u003e\n            \u003c/ods-map\u003e\n        \u003c/div\u003e\n        \u003cdiv class=\&#34;col-md-4\&#34;\u003e\n              \u003cspan class=\&#34;ods-button\&#34; ng-click=\&#34;comm.parameters = {}; depts.parameters = {}; regions.parameters = {};\&#34;\u003e\n                  Supprimer tous les filtres\n              \u003c/span\u003e\n            \u003ch2\u003e\n                Jeu de données région\n            \u003c/h2\u003e\n            \u003ch4\u003e\n                \u003cspan ng-if=\&#34;!regions.parameters[&#39;refine.reg_code&#39;]\&#34;\u003eAucun filtre actif\u003c/span\u003e\n                \u003cspan ng-if=\&#34;regions.parameters[&#39;refine.reg_code&#39;]\&#34;\u003eFiltre actif : reg_code = {{ regions.parameters[&#39;refine.reg_code&#39;] }}\u003c/span\u003e\n            \u003c/h4\u003e\n            \u003ch2\u003e\n                Jeu de données département\n            \u003c/h2\u003e\n            \u003ch4\u003e\n                \u003cspan ng-if=\&#34;!(depts.parameters[&#39;refine.dep_code&#39;] || depts.parameters[&#39;refine.reg_code&#39;])\&#34;\u003eAucun filtre actif\u003c/span\u003e\n                \u003cspan ng-if=\&#34;depts.parameters[&#39;refine.reg_code&#39;]\&#34;\u003eFiltre actif : reg_code = {{ depts.parameters[&#39;refine.reg_code&#39;] }}\u003c/span\u003e\n                \u003cspan ng-if=\&#34;depts.parameters[&#39;refine.dep_code&#39;]\&#34;\u003e\u003cbr/\u003eFiltre actif: dep_code = {{ depts.parameters[&#39;refine.dep_code&#39;] }}\u003c/span\u003e\n            \u003c/h4\u003e\n            \u003ch2\u003e\n                Jeu de données commune\n            \u003c/h2\u003e\n            \u003ch4\u003e\n                \u003cspan ng-if=\&#34;!comm.parameters[&#39;refine.dep_code&#39;]\&#34;\u003eAucun filtre actif\u003c/span\u003e\n                \u003cspan ng-if=\&#34;comm.parameters[&#39;refine.dep_code&#39;]\&#34;\u003eFiltre actif : dep_code = {{ comm.parameters[&#39;refine.dep_code&#39;] }}\u003c/span\u003e\n            \u003c/h4\u003e\n        \u003c/div\u003e\n    \u003c/ods-dataset-context\u003e\n\u003c/div\u003e\n\u003c/div\u003e&#34;,
-               "css": &#34;&#34; }'>
+               "html": &#34;\u003cdiv ng-app=\&#34;ods-widgets\&#34;\u003e\n\u003cdiv\u003e\n    \u003cods-dataset-context context=\&#34;evenementspublicsopenagenda,secondarycontext\&#34;\n                         evenementspublicsopenagenda-dataset=\&#34;evenements-publics-openagenda\&#34;\n                         evenementspublicsopenagenda-parameters=\&#34;{&#39;disjunctive.city&#39;:true}\&#34;\n                         evenementspublicsopenagenda-domain=\&#34;userclub\&#34;\n                         secondarycontext-dataset=\&#34;evenements-publics-openagenda\&#34;\n                         secondarycontext-parameters=\&#34;{&#39;disjunctive.city&#39;:true}\&#34;\n                         secondarycontext-domain=\&#34;userclub\&#34;\u003e\n        \u003cdiv class=\&#34;row\&#34;\n             ods-facet-results=\&#34;cities\&#34;\n             ods-facet-results-facet-name=\&#34;city\&#34;\n             ods-facet-results-context=\&#34;evenementspublicsopenagenda\&#34;\u003e\n            \u003cdiv class=\&#34;col-md-3 col-sm-6 mb\&#34; ng-if=\&#34;true\&#34; ng-init=\&#34;selection\&#34;\u003e\n                \u003ch3\u003e\n                    Simplest mode, with label and value modifier on the name\n                \u003c/h3\u003e\n                \u003cods-select options=\&#34;cities\&#34;\n                            selected-values=\&#34;selection\&#34;\n                            label-modifier=\&#34;name\&#34;\n                            value-modifier=\&#34;name\&#34;\n                            placeholder=\&#34;Pick a city\&#34;\u003e\u003c/ods-select\u003e\n                \u003ch4\u003eInput:\u003c/h4\u003e\n                \u003cpre ng-bind=\&#34;cities|json\&#34;\u003e\u003c/pre\u003e\n                \u003ch4\u003eSelection:\u003c/h4\u003e\n                \u003cpre ng-bind=\&#34;selection|json\&#34;\u003e\u003c/pre\u003e\n            \u003c/div\u003e\n            \u003cdiv class=\&#34;col-md-3 col-sm-6 mb\&#34; ng-if=\&#34;true\&#34; ng-init=\&#34;selection\&#34;\u003e\n                \u003ch3\u003e\n                    Expression in the label-modifier\n                \u003c/h3\u003e\n                \u003cods-select options=\&#34;cities\&#34;\n                            selected-values=\&#34;selection\&#34;\n                            label-modifier=\&#34;name &#43; &#39; - &#39; &#43; (count | number) &#43; &#39; events&#39;\&#34;\n                            value-modifier=\&#34;name\&#34;\n                            placeholder=\&#34;Pick a city\&#34;\u003e\u003c/ods-select\u003e\n                \u003ch4\u003eInput:\u003c/h4\u003e\n                \u003cpre ng-bind=\&#34;cities|json\&#34;\u003e\u003c/pre\u003e\n                \u003ch4\u003eSelection:\u003c/h4\u003e\n                \u003cpre ng-bind=\&#34;selection|json\&#34;\u003e\u003c/pre\u003e\n            \u003c/div\u003e\n            \u003cdiv class=\&#34;col-md-3 col-sm-6 mb\&#34; ng-if=\&#34;true\&#34;\u003e\n                \u003ch3\u003e\n                    Use the selection to refine the dataset through selected-values parameter\n                \u003c/h3\u003e\n                \u003cods-select options=\&#34;cities\&#34;\n                            selected-values=\&#34;evenementspublicsopenagenda.parameters[&#39;refine.city&#39;]\&#34;\n                            label-modifier=\&#34;name &#43; &#39; - &#39; &#43; (count | number) &#43; &#39; events&#39;\&#34;\n                            value-modifier=\&#34;name\&#34;\n                            placeholder=\&#34;Pick a city\&#34;\u003e\u003c/ods-select\u003e\n                \u003cods-table context=\&#34;evenementspublicsopenagenda\&#34; displayed-fields=\&#34;address\&#34;\u003e\u003c/ods-table\u003e\n            \u003c/div\u003e\n            \u003cdiv class=\&#34;col-md-3 col-sm-6 mb\&#34; ng-if=\&#34;true\&#34; ng-init=\&#34;selection\&#34;\u003e\n                \u003ch3\u003e\n                    More advanced: refine the dataset with an AngularJs expression\n                \u003c/h3\u003e\n                \u003cods-select options=\&#34;cities\&#34;\n                            selected-values=\&#34;selection\&#34;\n                            label-modifier=\&#34;name &#43; &#39; - &#39; &#43; (count | number) &#43; &#39; events&#39;\&#34;\n                            value-modifier=\&#34;name\&#34;\n                            placeholder=\&#34;Pick a city\&#34;\u003e\u003c/ods-select\u003e\n                {{ secondarycontext.parameters[&#39;refine.city&#39;] = selection; &#39;&#39; }}\n                \u003cods-table context=\&#34;secondarycontext\&#34; displayed-fields=\&#34;address\&#34;\u003e\u003c/ods-table\u003e\n            \u003c/div\u003e\n        \u003c/div\u003e\n\n    \u003c/ods-dataset-context\u003e\n\u003c/div\u003e\u003c/div\u003e&#34;,
+               "css": &#34;/** DO NOT COPY **/\n/* the CSS is only for a better reading of the demo */\n.mb {\n    margin-bottom: 30px;\n}\nh3 {\n    height: 60px;\n}\n.odswidget-select {\n    margin-bottom: 25px;\n}&#34; }'>
     </form>
 </div>
 
 <div class="ods-content">
     <section class="box box-live-example">
-      <iframe id="iframe-ods-map-refine-zoom-2"
+      <iframe id="iframe-ods-select-2"
               width="100%" height="100%"
               src="about:blank"
               srcdoc="
@@ -791,72 +823,86 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
         </head>
         <body>
         <div ng-app='ods-widgets'>
-            &lt;div class=&#34;row ods-box&#34;&gt;
-    &lt;ods-dataset-context context=&#34;regions,depts,comm&#34;
-                         regions-domain=&#34;userclub&#34;
-                         regions-dataset=&#34;regions-et-collectivites-doutre-mer-france&#34;
-                         depts-domain=&#34;userclub&#34;
-                         depts-dataset=&#34;departements-et-collectivites-doutre-mer-france&#34;
-                         comm-domain=&#34;userclub&#34;
-                         comm-dataset=&#34;communes-et-arrondissements-municipaux-france&#34;&gt;
-        &lt;div class=&#34;col-md-8&#34;&gt;
-            &lt;ods-map style=&#34;height:560px&#34; scroll-wheel-zoom=&#34;false&#34;&gt;
-                &lt;ods-map-layer context=&#34;regions&#34;
-                               refine-on-click-context=&#34;[regions,depts]&#34;
-                               refine-on-click-regions-map-field=&#34;reg_code&#34;
-                               refine-on-click-regions-context-field=&#34;reg_code&#34;
-                               refine-on-click-depts-map-field=&#34;reg_code&#34;
-                               refine-on-click-depts-context-field=&#34;reg_code&#34;
-                               color=&#34;#3D3D3D&#34;
-                               show-if=&#34;!regions.parameters[&#39;refine.reg_code&#39;]&#34;&gt;
-                &lt;/ods-map-layer&gt;
-                &lt;ods-map-layer context=&#34;depts&#34;
-                               refine-on-click-context=&#34;[depts,comm]&#34;
-                               refine-on-click-depts-map-field=&#34;dep_code&#34;
-                               refine-on-click-depts-context-field=&#34;dep_code&#34;
-                               refine-on-click-comm-map-field=&#34;dep_code&#34;
-                               refine-on-click-comm-context-field=&#34;dep_code&#34;
-                               color=&#34;#3D3D3D&#34;
-                               show-if=&#34;depts.parameters[&#39;refine.reg_code&#39;] &amp;&amp; !comm.parameters[&#39;refine.dep_code&#39;]&#34;&gt;
-                &lt;/ods-map-layer&gt;
-                &lt;ods-map-layer context=&#34;comm&#34;
-                               show-if=&#34;comm.parameters[&#39;refine.dep_code&#39;]&#34;&gt;
-                &lt;/ods-map-layer&gt;
-            &lt;/ods-map&gt;
+            &lt;div&gt;
+    &lt;ods-dataset-context context=&#34;evenementspublicsopenagenda,secondarycontext&#34;
+                         evenementspublicsopenagenda-dataset=&#34;evenements-publics-openagenda&#34;
+                         evenementspublicsopenagenda-parameters=&#34;{&#39;disjunctive.city&#39;:true}&#34;
+                         evenementspublicsopenagenda-domain=&#34;userclub&#34;
+                         secondarycontext-dataset=&#34;evenements-publics-openagenda&#34;
+                         secondarycontext-parameters=&#34;{&#39;disjunctive.city&#39;:true}&#34;
+                         secondarycontext-domain=&#34;userclub&#34;&gt;
+        &lt;div class=&#34;row&#34;
+             ods-facet-results=&#34;cities&#34;
+             ods-facet-results-facet-name=&#34;city&#34;
+             ods-facet-results-context=&#34;evenementspublicsopenagenda&#34;&gt;
+            &lt;div class=&#34;col-md-3 col-sm-6 mb&#34; ng-if=&#34;true&#34; ng-init=&#34;selection&#34;&gt;
+                &lt;h3&gt;
+                    Simplest mode, with label and value modifier on the name
+                &lt;/h3&gt;
+                &lt;ods-select options=&#34;cities&#34;
+                            selected-values=&#34;selection&#34;
+                            label-modifier=&#34;name&#34;
+                            value-modifier=&#34;name&#34;
+                            placeholder=&#34;Pick a city&#34;&gt;&lt;/ods-select&gt;
+                &lt;h4&gt;Input:&lt;/h4&gt;
+                &lt;pre ng-bind=&#34;cities|json&#34;&gt;&lt;/pre&gt;
+                &lt;h4&gt;Selection:&lt;/h4&gt;
+                &lt;pre ng-bind=&#34;selection|json&#34;&gt;&lt;/pre&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;col-md-3 col-sm-6 mb&#34; ng-if=&#34;true&#34; ng-init=&#34;selection&#34;&gt;
+                &lt;h3&gt;
+                    Expression in the label-modifier
+                &lt;/h3&gt;
+                &lt;ods-select options=&#34;cities&#34;
+                            selected-values=&#34;selection&#34;
+                            label-modifier=&#34;name &#43; &#39; - &#39; &#43; (count | number) &#43; &#39; events&#39;&#34;
+                            value-modifier=&#34;name&#34;
+                            placeholder=&#34;Pick a city&#34;&gt;&lt;/ods-select&gt;
+                &lt;h4&gt;Input:&lt;/h4&gt;
+                &lt;pre ng-bind=&#34;cities|json&#34;&gt;&lt;/pre&gt;
+                &lt;h4&gt;Selection:&lt;/h4&gt;
+                &lt;pre ng-bind=&#34;selection|json&#34;&gt;&lt;/pre&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;col-md-3 col-sm-6 mb&#34; ng-if=&#34;true&#34;&gt;
+                &lt;h3&gt;
+                    Use the selection to refine the dataset through selected-values parameter
+                &lt;/h3&gt;
+                &lt;ods-select options=&#34;cities&#34;
+                            selected-values=&#34;evenementspublicsopenagenda.parameters[&#39;refine.city&#39;]&#34;
+                            label-modifier=&#34;name &#43; &#39; - &#39; &#43; (count | number) &#43; &#39; events&#39;&#34;
+                            value-modifier=&#34;name&#34;
+                            placeholder=&#34;Pick a city&#34;&gt;&lt;/ods-select&gt;
+                &lt;ods-table context=&#34;evenementspublicsopenagenda&#34; displayed-fields=&#34;address&#34;&gt;&lt;/ods-table&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;col-md-3 col-sm-6 mb&#34; ng-if=&#34;true&#34; ng-init=&#34;selection&#34;&gt;
+                &lt;h3&gt;
+                    More advanced: refine the dataset with an AngularJs expression
+                &lt;/h3&gt;
+                &lt;ods-select options=&#34;cities&#34;
+                            selected-values=&#34;selection&#34;
+                            label-modifier=&#34;name &#43; &#39; - &#39; &#43; (count | number) &#43; &#39; events&#39;&#34;
+                            value-modifier=&#34;name&#34;
+                            placeholder=&#34;Pick a city&#34;&gt;&lt;/ods-select&gt;
+                {{ secondarycontext.parameters[&#39;refine.city&#39;] = selection; &#39;&#39; }}
+                &lt;ods-table context=&#34;secondarycontext&#34; displayed-fields=&#34;address&#34;&gt;&lt;/ods-table&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;col-md-4&#34;&gt;
-              &lt;span class=&#34;ods-button&#34; ng-click=&#34;comm.parameters = {}; depts.parameters = {}; regions.parameters = {};&#34;&gt;
-                  Supprimer tous les filtres
-              &lt;/span&gt;
-            &lt;h2&gt;
-                Jeu de données région
-            &lt;/h2&gt;
-            &lt;h4&gt;
-                &lt;span ng-if=&#34;!regions.parameters[&#39;refine.reg_code&#39;]&#34;&gt;Aucun filtre actif&lt;/span&gt;
-                &lt;span ng-if=&#34;regions.parameters[&#39;refine.reg_code&#39;]&#34;&gt;Filtre actif : reg_code = {{ regions.parameters[&#39;refine.reg_code&#39;] }}&lt;/span&gt;
-            &lt;/h4&gt;
-            &lt;h2&gt;
-                Jeu de données département
-            &lt;/h2&gt;
-            &lt;h4&gt;
-                &lt;span ng-if=&#34;!(depts.parameters[&#39;refine.dep_code&#39;] || depts.parameters[&#39;refine.reg_code&#39;])&#34;&gt;Aucun filtre actif&lt;/span&gt;
-                &lt;span ng-if=&#34;depts.parameters[&#39;refine.reg_code&#39;]&#34;&gt;Filtre actif : reg_code = {{ depts.parameters[&#39;refine.reg_code&#39;] }}&lt;/span&gt;
-                &lt;span ng-if=&#34;depts.parameters[&#39;refine.dep_code&#39;]&#34;&gt;&lt;br/&gt;Filtre actif: dep_code = {{ depts.parameters[&#39;refine.dep_code&#39;] }}&lt;/span&gt;
-            &lt;/h4&gt;
-            &lt;h2&gt;
-                Jeu de données commune
-            &lt;/h2&gt;
-            &lt;h4&gt;
-                &lt;span ng-if=&#34;!comm.parameters[&#39;refine.dep_code&#39;]&#34;&gt;Aucun filtre actif&lt;/span&gt;
-                &lt;span ng-if=&#34;comm.parameters[&#39;refine.dep_code&#39;]&#34;&gt;Filtre actif : dep_code = {{ comm.parameters[&#39;refine.dep_code&#39;] }}&lt;/span&gt;
-            &lt;/h4&gt;
-        &lt;/div&gt;
+
     &lt;/ods-dataset-context&gt;
 &lt;/div&gt;
-
         </div>
         <style type='text/css'>
-            
+            /** DO NOT COPY **/
+/* the CSS is only for a better reading of the demo */
+.mb {
+    margin-bottom: 30px;
+}
+h3 {
+    height: 60px;
+}
+.odswidget-select {
+    margin-bottom: 25px;
+}
         </style>
         </body>
         ">
@@ -870,8 +916,15 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
                     <ul class="buttons has-addons js-tablist">
                         <li class="button is-secondary is-outlined js-tablist__item">
                             <a class="js-tablist__link"
-                               href="#code-ods-map-refine-zoom-2-html-content">
+                               href="#code-ods-select-2-html-content">
                                 HTML
+                            </a>
+                        </li>
+                        
+                        <li class="button is-secondary is-outlined js-tablist__item">
+                            <a class="js-tablist__link"
+                               href="#code-ods-select-2-css-content">
+                                CSS
                             </a>
                         </li>
                         
@@ -885,7 +938,7 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
                    aria-role="link"
                    rel="noopener"
                    title="Edit on CodePen, open a new tab"
-                   onclick="document.getElementById('form-ods-map-refine-zoom-2').submit()">
+                   onclick="document.getElementById('form-ods-select-2').submit()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-edit">
@@ -899,71 +952,92 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
 
         <div class="tab-content">
             <div class="js-tabcontent"
-                 id="code-ods-map-refine-zoom-2-html-content">
+                 id="code-ods-select-2-html-content">
                 <div class="highlight">
-                    <pre class="language-html" data-lang="html"><code>&lt;div class=&#34;row ods-box&#34;&gt;
-    &lt;ods-dataset-context context=&#34;regions,depts,comm&#34;
-                         regions-domain=&#34;userclub&#34;
-                         regions-dataset=&#34;regions-et-collectivites-doutre-mer-france&#34;
-                         depts-domain=&#34;userclub&#34;
-                         depts-dataset=&#34;departements-et-collectivites-doutre-mer-france&#34;
-                         comm-domain=&#34;userclub&#34;
-                         comm-dataset=&#34;communes-et-arrondissements-municipaux-france&#34;&gt;
-        &lt;div class=&#34;col-md-8&#34;&gt;
-            &lt;ods-map style=&#34;height:560px&#34; scroll-wheel-zoom=&#34;false&#34;&gt;
-                &lt;ods-map-layer context=&#34;regions&#34;
-                               refine-on-click-context=&#34;[regions,depts]&#34;
-                               refine-on-click-regions-map-field=&#34;reg_code&#34;
-                               refine-on-click-regions-context-field=&#34;reg_code&#34;
-                               refine-on-click-depts-map-field=&#34;reg_code&#34;
-                               refine-on-click-depts-context-field=&#34;reg_code&#34;
-                               color=&#34;#3D3D3D&#34;
-                               show-if=&#34;!regions.parameters[&#39;refine.reg_code&#39;]&#34;&gt;
-                &lt;/ods-map-layer&gt;
-                &lt;ods-map-layer context=&#34;depts&#34;
-                               refine-on-click-context=&#34;[depts,comm]&#34;
-                               refine-on-click-depts-map-field=&#34;dep_code&#34;
-                               refine-on-click-depts-context-field=&#34;dep_code&#34;
-                               refine-on-click-comm-map-field=&#34;dep_code&#34;
-                               refine-on-click-comm-context-field=&#34;dep_code&#34;
-                               color=&#34;#3D3D3D&#34;
-                               show-if=&#34;depts.parameters[&#39;refine.reg_code&#39;] &amp;&amp; !comm.parameters[&#39;refine.dep_code&#39;]&#34;&gt;
-                &lt;/ods-map-layer&gt;
-                &lt;ods-map-layer context=&#34;comm&#34;
-                               show-if=&#34;comm.parameters[&#39;refine.dep_code&#39;]&#34;&gt;
-                &lt;/ods-map-layer&gt;
-            &lt;/ods-map&gt;
+                    <pre class="language-html" data-lang="html"><code>&lt;div&gt;
+    &lt;ods-dataset-context context=&#34;evenementspublicsopenagenda,secondarycontext&#34;
+                         evenementspublicsopenagenda-dataset=&#34;evenements-publics-openagenda&#34;
+                         evenementspublicsopenagenda-parameters=&#34;{&#39;disjunctive.city&#39;:true}&#34;
+                         evenementspublicsopenagenda-domain=&#34;userclub&#34;
+                         secondarycontext-dataset=&#34;evenements-publics-openagenda&#34;
+                         secondarycontext-parameters=&#34;{&#39;disjunctive.city&#39;:true}&#34;
+                         secondarycontext-domain=&#34;userclub&#34;&gt;
+        &lt;div class=&#34;row&#34;
+             ods-facet-results=&#34;cities&#34;
+             ods-facet-results-facet-name=&#34;city&#34;
+             ods-facet-results-context=&#34;evenementspublicsopenagenda&#34;&gt;
+            &lt;div class=&#34;col-md-3 col-sm-6 mb&#34; ng-if=&#34;true&#34; ng-init=&#34;selection&#34;&gt;
+                &lt;h3&gt;
+                    Simplest mode, with label and value modifier on the name
+                &lt;/h3&gt;
+                &lt;ods-select options=&#34;cities&#34;
+                            selected-values=&#34;selection&#34;
+                            label-modifier=&#34;name&#34;
+                            value-modifier=&#34;name&#34;
+                            placeholder=&#34;Pick a city&#34;&gt;&lt;/ods-select&gt;
+                &lt;h4&gt;Input:&lt;/h4&gt;
+                &lt;pre ng-bind=&#34;cities|json&#34;&gt;&lt;/pre&gt;
+                &lt;h4&gt;Selection:&lt;/h4&gt;
+                &lt;pre ng-bind=&#34;selection|json&#34;&gt;&lt;/pre&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;col-md-3 col-sm-6 mb&#34; ng-if=&#34;true&#34; ng-init=&#34;selection&#34;&gt;
+                &lt;h3&gt;
+                    Expression in the label-modifier
+                &lt;/h3&gt;
+                &lt;ods-select options=&#34;cities&#34;
+                            selected-values=&#34;selection&#34;
+                            label-modifier=&#34;name &#43; &#39; - &#39; &#43; (count | number) &#43; &#39; events&#39;&#34;
+                            value-modifier=&#34;name&#34;
+                            placeholder=&#34;Pick a city&#34;&gt;&lt;/ods-select&gt;
+                &lt;h4&gt;Input:&lt;/h4&gt;
+                &lt;pre ng-bind=&#34;cities|json&#34;&gt;&lt;/pre&gt;
+                &lt;h4&gt;Selection:&lt;/h4&gt;
+                &lt;pre ng-bind=&#34;selection|json&#34;&gt;&lt;/pre&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;col-md-3 col-sm-6 mb&#34; ng-if=&#34;true&#34;&gt;
+                &lt;h3&gt;
+                    Use the selection to refine the dataset through selected-values parameter
+                &lt;/h3&gt;
+                &lt;ods-select options=&#34;cities&#34;
+                            selected-values=&#34;evenementspublicsopenagenda.parameters[&#39;refine.city&#39;]&#34;
+                            label-modifier=&#34;name &#43; &#39; - &#39; &#43; (count | number) &#43; &#39; events&#39;&#34;
+                            value-modifier=&#34;name&#34;
+                            placeholder=&#34;Pick a city&#34;&gt;&lt;/ods-select&gt;
+                &lt;ods-table context=&#34;evenementspublicsopenagenda&#34; displayed-fields=&#34;address&#34;&gt;&lt;/ods-table&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;col-md-3 col-sm-6 mb&#34; ng-if=&#34;true&#34; ng-init=&#34;selection&#34;&gt;
+                &lt;h3&gt;
+                    More advanced: refine the dataset with an AngularJs expression
+                &lt;/h3&gt;
+                &lt;ods-select options=&#34;cities&#34;
+                            selected-values=&#34;selection&#34;
+                            label-modifier=&#34;name &#43; &#39; - &#39; &#43; (count | number) &#43; &#39; events&#39;&#34;
+                            value-modifier=&#34;name&#34;
+                            placeholder=&#34;Pick a city&#34;&gt;&lt;/ods-select&gt;
+                {{ secondarycontext.parameters[&#39;refine.city&#39;] = selection; &#39;&#39; }}
+                &lt;ods-table context=&#34;secondarycontext&#34; displayed-fields=&#34;address&#34;&gt;&lt;/ods-table&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;col-md-4&#34;&gt;
-              &lt;span class=&#34;ods-button&#34; ng-click=&#34;comm.parameters = {}; depts.parameters = {}; regions.parameters = {};&#34;&gt;
-                  Supprimer tous les filtres
-              &lt;/span&gt;
-            &lt;h2&gt;
-                Jeu de données région
-            &lt;/h2&gt;
-            &lt;h4&gt;
-                &lt;span ng-if=&#34;!regions.parameters[&#39;refine.reg_code&#39;]&#34;&gt;Aucun filtre actif&lt;/span&gt;
-                &lt;span ng-if=&#34;regions.parameters[&#39;refine.reg_code&#39;]&#34;&gt;Filtre actif : reg_code = {{ regions.parameters[&#39;refine.reg_code&#39;] }}&lt;/span&gt;
-            &lt;/h4&gt;
-            &lt;h2&gt;
-                Jeu de données département
-            &lt;/h2&gt;
-            &lt;h4&gt;
-                &lt;span ng-if=&#34;!(depts.parameters[&#39;refine.dep_code&#39;] || depts.parameters[&#39;refine.reg_code&#39;])&#34;&gt;Aucun filtre actif&lt;/span&gt;
-                &lt;span ng-if=&#34;depts.parameters[&#39;refine.reg_code&#39;]&#34;&gt;Filtre actif : reg_code = {{ depts.parameters[&#39;refine.reg_code&#39;] }}&lt;/span&gt;
-                &lt;span ng-if=&#34;depts.parameters[&#39;refine.dep_code&#39;]&#34;&gt;&lt;br/&gt;Filtre actif: dep_code = {{ depts.parameters[&#39;refine.dep_code&#39;] }}&lt;/span&gt;
-            &lt;/h4&gt;
-            &lt;h2&gt;
-                Jeu de données commune
-            &lt;/h2&gt;
-            &lt;h4&gt;
-                &lt;span ng-if=&#34;!comm.parameters[&#39;refine.dep_code&#39;]&#34;&gt;Aucun filtre actif&lt;/span&gt;
-                &lt;span ng-if=&#34;comm.parameters[&#39;refine.dep_code&#39;]&#34;&gt;Filtre actif : dep_code = {{ comm.parameters[&#39;refine.dep_code&#39;] }}&lt;/span&gt;
-            &lt;/h4&gt;
-        &lt;/div&gt;
+
     &lt;/ods-dataset-context&gt;
-&lt;/div&gt;
-</code></pre>
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+            
+            <div class="js-tabcontent"
+                 id="code-ods-select-2-css-content">
+                <div class="highlight">
+                    <pre class="language-css" data-lang="css"><code>/** DO NOT COPY **/
+/* the CSS is only for a better reading of the demo */
+.mb {
+    margin-bottom: 30px;
+}
+h3 {
+    height: 60px;
+}
+.odswidget-select {
+    margin-bottom: 25px;
+}</code></pre>
                 </div>
             </div>
             
@@ -974,7 +1048,7 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
 <script type="text/javascript">
     window.addEventListener("DOMContentLoaded", () => {
         var loopId = setInterval(() => {
-            iframeId = "iframe-ods-map-refine-zoom-2";
+            iframeId = "iframe-ods-select-2";
             iframe = document.getElementById(iframeId);
              
             size =  null 
@@ -1010,17 +1084,18 @@ ods-map: Refine &amp; Zoom &ndash; Codelibrary
     <div class="container">
         <div class="box box-example">
           <div class="content">
-            <h2 class="title" id="dynamic-map-by-zoom-level">
-  Dynamic map by zoom level
+            <h2 class="title" id="fed-by-an-analysis-via-ods-analysis-widget">
+  Fed by an analysis (via ods-analysis widget)
   
-    <a class="is-link" href="#dynamic-map-by-zoom-level">
+    <a class="is-link" href="#fed-by-an-analysis-via-ods-analysis-widget">
       <img src="/img/fas-link.svg" />
     </a>
   
 </h2>
-<p>In this example, the French administrative regions, departments and cities are displayed in a specific zoom range.
-Regions from the minimum to 6, Departments from 7 to 8, Cities from 9 to the maximum</p>
-<p><em>You can also configure layers to only be visible between certain zoom levels, using <strong>show-zoom-min</strong>, <strong>show-zoom-max</strong>, or both.</em></p>
+<p><code>ods-analysis</code> <a href="https://codelibrary.opendatasoft.com/widget-tricks/ods-analysis/">Code Library resource</a> and <a href="https://help.opendatasoft.com/widgets/#/api/ods-widgets.directive:odsAnalysis">it&rsquo;s documentation</a>.</p>
+<blockquote>
+<p>Note that performing an analysis on a field containing huge quantity of distinct values can alter performances of the page (the browser needs to download the long list of possible values, then it displays and manipulates the list int the widget)</p>
+</blockquote>
 
           </div>
           
@@ -1031,7 +1106,7 @@ Regions from the minimum to 6, Departments from 7 to 8, Cities from 9 to the max
     
     
 
-    <form id="form-ods-map-refine-zoom-3"
+    <form id="form-ods-select-3"
           action="https://codepen.io/pen/define"
           method="POST"
           target="_blank">
@@ -1041,14 +1116,14 @@ Regions from the minimum to 6, Departments from 7 to 8, Cities from 9 to the max
                "title": "New Pen!",
                "head": &#34;\u003clink rel=\&#34;stylesheet\&#34; href=\&#34;https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css\&#34;\u003e\n\u003clink rel=\&#34;stylesheet\&#34; href=\&#34;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\&#34;\u003e\n\u003clink rel=\&#34;stylesheet\&#34; href=\&#34;https://static.opendatasoft.com/ods-widgets/latest-v2/ods-widgets.css\&#34;\u003e\n\n\u003c!-- ODS Platform CSS - must be hosted on static : WIP --\u003e\n\u003clink rel=\&#34;stylesheet\&#34; href=\&#34;https://s3-us-west-2.amazonaws.com/s.cdpn.io/4124551/ods.css\&#34;\u003e\n\u003clink rel=\&#34;stylesheet\&#34; href=\&#34;https://codelibrary.opendatasoft.com/css/theme.css\&#34;\u003e\n\n\u003cscript src=\&#34;//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js\&#34;\u003e\u003c/script\u003e\n\u003cscript src=\&#34;//cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.0/angular.js\&#34;\u003e\u003c/script\u003e\n\u003cscript src=\&#34;//cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.8.2/angular-sanitize.min.js\&#34;\u003e\u003c/script\u003e\n\u003cscript src=\&#34;https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.8.2/angular-locale_fr.min.js\&#34;\u003e\u003c/script\u003e\n\u003cscript type=\&#34;text/javascript\&#34; src=\&#34;https://static.opendatasoft.com/ods-widgets/latest-v2/ods-widgets.js\&#34;\u003e\u003c/script\u003e\n\n\u003cscript type=\&#34;text/javascript\&#34; src=\&#34;https://codelibrary.opendatasoft.com/js/platform-filters.js\&#34;\u003e\u003c/script\u003e\n\u003cscript type=\&#34;text/javascript\&#34; src=\&#34;https://codelibrary.opendatasoft.com/js/ods-catalog-card.js\&#34;\u003e\u003c/script\u003e\n\n\u003cscript type=\&#34;text/javascript\&#34;\u003e\n    angular.module(&#39;ods-widgets&#39;).config(function (ODSWidgetsConfigProvider) {\n        ODSWidgetsConfigProvider.setConfig({\n            \&#34;defaultDomain\&#34;: \&#34;https://userclub.opendatasoft.com/\&#34;,\n            \&#34;basemaps\&#34;: [\n                {\n                    \&#34;provider\&#34;: \&#34;jawg.light\&#34;,\n                    \&#34;label\&#34;: \&#34;Jawg Light\&#34;,\n                    \&#34;jawg_apikey\&#34;: \&#34;opendatasoft-community\&#34;\n                }\n            ],\n            \&#34;themes\&#34;: {\n                &#39;default&#39;: {\n                    &#39;url&#39;: &#39;/img/ods.svg&#39;\n                },\n                &#39;Santé&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/doctors.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Culture, Patrimoine&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/culture.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Éducation, Formation, Recherche, Enseignement&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/college.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Environment&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/leaf.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Transports, Déplacements&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/train_station.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Aménagement du territoire, Urbanisme, Bâtiments, Équipements, Logement&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/townplanning.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Économie, Business, PME, Développement économique, Emploi&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/economy.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Administration, Gouvernement, Finances publiques, Citoyenneté&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/administration.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Justice, Sécurité, Police, Crime&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/court.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Sport, Loisirs&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/soccer.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Hébergement, Restauration&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/accommodation.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Services, Social&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/social.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Checklist&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/copyshop.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                },\n                &#39;Usages&#39;: {\n                    &#39;url&#39;: &#39;https://userclub.opendatasoft.com/static/pictos/img/set-v3/pictos/bike.svg&#39;,\n                    &#39;color&#39;: &#39;#1446A0&#39;\n                }\n            },\n            \&#34;mapPrependAttribution\&#34;: \&#34;Jawg apikey NOT suitable for production\&#34;\n        });\n    });\n\u003c/script\u003e\n\n\u003cscript type=\&#34;text/javascript\&#34;\u003e\n    document.addEventListener(\&#34;DOMContentLoaded\&#34;, function () {\n        document.querySelectorAll(&#39;a[href=\&#34;#\&#34;]&#39;).forEach((el) =\u003e {\n            el.addEventListener(&#39;click&#39;, (event) =\u003e {\n                event.preventDefault();\n            });\n        })\n    });\n\u003c/script\u003e\n&#34;,
                "editors": 110,
-               "html": &#34;\u003cdiv ng-app=\&#34;ods-widgets\&#34;\u003e\n\u003cods-dataset-context context=\&#34;regions,depts,comm\&#34;\n                     regions-domain=\&#34;userclub\&#34;\n                     regions-dataset=\&#34;regions-et-collectivites-doutre-mer-france\&#34;\n                     depts-domain=\&#34;userclub\&#34;\n                     depts-dataset=\&#34;departements-et-collectivites-doutre-mer-france\&#34;\n                     comm-domain=\&#34;userclub\&#34;\n                     comm-dataset=\&#34;communes-et-arrondissements-municipaux-france\&#34;\u003e\n    \u003cods-map location=\&#34;5,44.73113,4.21875\&#34; style=\&#34;height:560px\&#34;\u003e\n        \u003cods-map-layer context=\&#34;regions\&#34;\n                       color=\&#34;#3D3D3D\&#34;\n                       show-zoom-max=\&#34;6\&#34;\u003e\n        \u003c/ods-map-layer\u003e\n        \u003cods-map-layer context=\&#34;depts\&#34;\n                       color=\&#34;#3D3D3D\&#34;\n                       show-zoom-min=\&#34;7\&#34;\n                       show-zoom-max=\&#34;8\&#34;\u003e\n        \u003c/ods-map-layer\u003e\n        \u003cods-map-layer context=\&#34;comm\&#34;\n                       color=\&#34;#c0c0c0\&#34;\n                       show-zoom-min=\&#34;9\&#34;\u003e\n        \u003c/ods-map-layer\u003e\n    \u003c/ods-map\u003e\n\u003c/ods-dataset-context\u003e\n\u003c/div\u003e&#34;,
-               "css": &#34;&#34; }'>
+               "html": &#34;\u003cdiv ng-app=\&#34;ods-widgets\&#34;\u003e\n\u003cdiv\u003e\n    \u003cods-dataset-context context=\&#34;evenementspublicsopenagenda,secondarycontext\&#34;\n                         evenementspublicsopenagenda-dataset=\&#34;evenements-publics-openagenda\&#34;\n                         evenementspublicsopenagenda-parameters=\&#34;{&#39;disjunctive.region&#39;:true}\&#34;\n                         evenementspublicsopenagenda-domain=\&#34;userclub\&#34;\n                         secondarycontext-dataset=\&#34;evenements-publics-openagenda\&#34;\n                         secondarycontext-parameters=\&#34;{&#39;disjunctive.region&#39;:true}\&#34;\n                         secondarycontext-domain=\&#34;userclub\&#34;\u003e\n        \u003cdiv class=\&#34;row\&#34;\n             ods-analysis=\&#34;regions\&#34;\n             ods-analysis-context=\&#34;evenementspublicsopenagenda\&#34;\n             ods-analysis-x=\&#34;region\&#34;\n             ods-analysis-serie-count=\&#34;COUNT()\&#34;\n             ods-analysis-sort=\&#34;count\&#34;\n             ods-analysis-max=\&#34;200\&#34;\u003e\n            \u003cdiv class=\&#34;col-md-3 col-sm-6 mb\&#34; ng-if=\&#34;true\&#34; ng-init=\&#34;selection\&#34;\u003e\n                \u003ch3\u003e\n                    Simplest mode, with label and value modifier on the X axis\n                \u003c/h3\u003e\n                \u003cods-select options=\&#34;regions.results\&#34;\n                            selected-values=\&#34;selection\&#34;\n                            label-modifier=\&#34;x\&#34;\n                            value-modifier=\&#34;x\&#34;\n                            placeholder=\&#34;Pick a region\&#34;\u003e\u003c/ods-select\u003e\n                \u003ch4\u003eInput:\u003c/h4\u003e\n                \u003cpre ng-bind=\&#34;regions|json\&#34;\u003e\u003c/pre\u003e\n                \u003ch4\u003eSelection:\u003c/h4\u003e\n                \u003cpre ng-bind=\&#34;selection|json\&#34;\u003e\u003c/pre\u003e\n            \u003c/div\u003e\n            \u003cdiv class=\&#34;col-md-3 col-sm-6 mb\&#34; ng-if=\&#34;true\&#34; ng-init=\&#34;selection\&#34;\u003e\n                \u003ch3\u003e\n                    Expression in the label-modifier\n                \u003c/h3\u003e\n                \u003cods-select options=\&#34;regions.results\&#34;\n                            selected-values=\&#34;selection\&#34;\n                            label-modifier=\&#34;x &#43; &#39; - &#39; &#43; (count | number) &#43; &#39; events&#39;\&#34;\n                            value-modifier=\&#34;x\&#34;\n                            placeholder=\&#34;Pick a region\&#34;\u003e\u003c/ods-select\u003e\n                \u003ch4\u003eInput:\u003c/h4\u003e\n                \u003cpre ng-bind=\&#34;regions|json\&#34;\u003e\u003c/pre\u003e\n                \u003ch4\u003eSelection:\u003c/h4\u003e\n                \u003cpre ng-bind=\&#34;selection|json\&#34;\u003e\u003c/pre\u003e\n            \u003c/div\u003e\n            \u003cdiv class=\&#34;col-md-3 col-sm-6 mb\&#34; ng-if=\&#34;true\&#34;\u003e\n                \u003ch3\u003e\n                    Use the selection to refine the dataset through selected-values parameter\n                \u003c/h3\u003e\n                \u003cods-select options=\&#34;regions.results\&#34;\n                            selected-values=\&#34;evenementspublicsopenagenda.parameters[&#39;refine.region&#39;]\&#34;\n                            label-modifier=\&#34;x &#43; &#39; - &#39; &#43; (count | number) &#43; &#39; events&#39;\&#34;\n                            value-modifier=\&#34;x\&#34;\n                            placeholder=\&#34;Pick a region\&#34;\u003e\u003c/ods-select\u003e\n                \u003cods-table context=\&#34;evenementspublicsopenagenda\&#34; displayed-fields=\&#34;department\&#34;\u003e\u003c/ods-table\u003e\n            \u003c/div\u003e\n            \u003cdiv class=\&#34;col-md-3 col-sm-6 mb\&#34; ng-if=\&#34;true\&#34; ng-init=\&#34;selection\&#34;\u003e\n                \u003ch3\u003e\n                    More advanced: refine the dataset with an AngularJs expression\n                \u003c/h3\u003e\n                \u003cods-select options=\&#34;regions.results\&#34;\n                            selected-values=\&#34;selection\&#34;\n                            label-modifier=\&#34;x &#43; &#39; - &#39; &#43; (count | number) &#43; &#39; events&#39;\&#34;\n                            value-modifier=\&#34;x\&#34;\n                            placeholder=\&#34;Pick a region\&#34;\u003e\u003c/ods-select\u003e\n                {{ secondarycontext.parameters[&#39;refine.region&#39;] = selection; &#39;&#39; }}\n                \u003cods-table context=\&#34;secondarycontext\&#34; displayed-fields=\&#34;department\&#34;\u003e\u003c/ods-table\u003e\n            \u003c/div\u003e\n        \u003c/div\u003e\n\n    \u003c/ods-dataset-context\u003e\n\u003c/div\u003e\u003c/div\u003e&#34;,
+               "css": &#34;/** DO NOT COPY **/\n/* the CSS is only for a better reading of the demo */\n.mb {\n    margin-bottom: 30px;\n}\nh3 {\n    height: 60px;\n}\n.odswidget-select {\n    margin-bottom: 25px;\n}&#34; }'>
     </form>
 </div>
 
 <div class="ods-content">
     <section class="box box-live-example">
-      <iframe id="iframe-ods-map-refine-zoom-3"
+      <iframe id="iframe-ods-select-3"
               width="100%" height="100%"
               src="about:blank"
               srcdoc="
@@ -1159,33 +1234,89 @@ Regions from the minimum to 6, Departments from 7 to 8, Cities from 9 to the max
         </head>
         <body>
         <div ng-app='ods-widgets'>
-            &lt;ods-dataset-context context=&#34;regions,depts,comm&#34;
-                     regions-domain=&#34;userclub&#34;
-                     regions-dataset=&#34;regions-et-collectivites-doutre-mer-france&#34;
-                     depts-domain=&#34;userclub&#34;
-                     depts-dataset=&#34;departements-et-collectivites-doutre-mer-france&#34;
-                     comm-domain=&#34;userclub&#34;
-                     comm-dataset=&#34;communes-et-arrondissements-municipaux-france&#34;&gt;
-    &lt;ods-map location=&#34;5,44.73113,4.21875&#34; style=&#34;height:560px&#34;&gt;
-        &lt;ods-map-layer context=&#34;regions&#34;
-                       color=&#34;#3D3D3D&#34;
-                       show-zoom-max=&#34;6&#34;&gt;
-        &lt;/ods-map-layer&gt;
-        &lt;ods-map-layer context=&#34;depts&#34;
-                       color=&#34;#3D3D3D&#34;
-                       show-zoom-min=&#34;7&#34;
-                       show-zoom-max=&#34;8&#34;&gt;
-        &lt;/ods-map-layer&gt;
-        &lt;ods-map-layer context=&#34;comm&#34;
-                       color=&#34;#c0c0c0&#34;
-                       show-zoom-min=&#34;9&#34;&gt;
-        &lt;/ods-map-layer&gt;
-    &lt;/ods-map&gt;
-&lt;/ods-dataset-context&gt;
+            &lt;div&gt;
+    &lt;ods-dataset-context context=&#34;evenementspublicsopenagenda,secondarycontext&#34;
+                         evenementspublicsopenagenda-dataset=&#34;evenements-publics-openagenda&#34;
+                         evenementspublicsopenagenda-parameters=&#34;{&#39;disjunctive.region&#39;:true}&#34;
+                         evenementspublicsopenagenda-domain=&#34;userclub&#34;
+                         secondarycontext-dataset=&#34;evenements-publics-openagenda&#34;
+                         secondarycontext-parameters=&#34;{&#39;disjunctive.region&#39;:true}&#34;
+                         secondarycontext-domain=&#34;userclub&#34;&gt;
+        &lt;div class=&#34;row&#34;
+             ods-analysis=&#34;regions&#34;
+             ods-analysis-context=&#34;evenementspublicsopenagenda&#34;
+             ods-analysis-x=&#34;region&#34;
+             ods-analysis-serie-count=&#34;COUNT()&#34;
+             ods-analysis-sort=&#34;count&#34;
+             ods-analysis-max=&#34;200&#34;&gt;
+            &lt;div class=&#34;col-md-3 col-sm-6 mb&#34; ng-if=&#34;true&#34; ng-init=&#34;selection&#34;&gt;
+                &lt;h3&gt;
+                    Simplest mode, with label and value modifier on the X axis
+                &lt;/h3&gt;
+                &lt;ods-select options=&#34;regions.results&#34;
+                            selected-values=&#34;selection&#34;
+                            label-modifier=&#34;x&#34;
+                            value-modifier=&#34;x&#34;
+                            placeholder=&#34;Pick a region&#34;&gt;&lt;/ods-select&gt;
+                &lt;h4&gt;Input:&lt;/h4&gt;
+                &lt;pre ng-bind=&#34;regions|json&#34;&gt;&lt;/pre&gt;
+                &lt;h4&gt;Selection:&lt;/h4&gt;
+                &lt;pre ng-bind=&#34;selection|json&#34;&gt;&lt;/pre&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;col-md-3 col-sm-6 mb&#34; ng-if=&#34;true&#34; ng-init=&#34;selection&#34;&gt;
+                &lt;h3&gt;
+                    Expression in the label-modifier
+                &lt;/h3&gt;
+                &lt;ods-select options=&#34;regions.results&#34;
+                            selected-values=&#34;selection&#34;
+                            label-modifier=&#34;x &#43; &#39; - &#39; &#43; (count | number) &#43; &#39; events&#39;&#34;
+                            value-modifier=&#34;x&#34;
+                            placeholder=&#34;Pick a region&#34;&gt;&lt;/ods-select&gt;
+                &lt;h4&gt;Input:&lt;/h4&gt;
+                &lt;pre ng-bind=&#34;regions|json&#34;&gt;&lt;/pre&gt;
+                &lt;h4&gt;Selection:&lt;/h4&gt;
+                &lt;pre ng-bind=&#34;selection|json&#34;&gt;&lt;/pre&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;col-md-3 col-sm-6 mb&#34; ng-if=&#34;true&#34;&gt;
+                &lt;h3&gt;
+                    Use the selection to refine the dataset through selected-values parameter
+                &lt;/h3&gt;
+                &lt;ods-select options=&#34;regions.results&#34;
+                            selected-values=&#34;evenementspublicsopenagenda.parameters[&#39;refine.region&#39;]&#34;
+                            label-modifier=&#34;x &#43; &#39; - &#39; &#43; (count | number) &#43; &#39; events&#39;&#34;
+                            value-modifier=&#34;x&#34;
+                            placeholder=&#34;Pick a region&#34;&gt;&lt;/ods-select&gt;
+                &lt;ods-table context=&#34;evenementspublicsopenagenda&#34; displayed-fields=&#34;department&#34;&gt;&lt;/ods-table&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;col-md-3 col-sm-6 mb&#34; ng-if=&#34;true&#34; ng-init=&#34;selection&#34;&gt;
+                &lt;h3&gt;
+                    More advanced: refine the dataset with an AngularJs expression
+                &lt;/h3&gt;
+                &lt;ods-select options=&#34;regions.results&#34;
+                            selected-values=&#34;selection&#34;
+                            label-modifier=&#34;x &#43; &#39; - &#39; &#43; (count | number) &#43; &#39; events&#39;&#34;
+                            value-modifier=&#34;x&#34;
+                            placeholder=&#34;Pick a region&#34;&gt;&lt;/ods-select&gt;
+                {{ secondarycontext.parameters[&#39;refine.region&#39;] = selection; &#39;&#39; }}
+                &lt;ods-table context=&#34;secondarycontext&#34; displayed-fields=&#34;department&#34;&gt;&lt;/ods-table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
 
+    &lt;/ods-dataset-context&gt;
+&lt;/div&gt;
         </div>
         <style type='text/css'>
-            
+            /** DO NOT COPY **/
+/* the CSS is only for a better reading of the demo */
+.mb {
+    margin-bottom: 30px;
+}
+h3 {
+    height: 60px;
+}
+.odswidget-select {
+    margin-bottom: 25px;
+}
         </style>
         </body>
         ">
@@ -1199,8 +1330,15 @@ Regions from the minimum to 6, Departments from 7 to 8, Cities from 9 to the max
                     <ul class="buttons has-addons js-tablist">
                         <li class="button is-secondary is-outlined js-tablist__item">
                             <a class="js-tablist__link"
-                               href="#code-ods-map-refine-zoom-3-html-content">
+                               href="#code-ods-select-3-html-content">
                                 HTML
+                            </a>
+                        </li>
+                        
+                        <li class="button is-secondary is-outlined js-tablist__item">
+                            <a class="js-tablist__link"
+                               href="#code-ods-select-3-css-content">
+                                CSS
                             </a>
                         </li>
                         
@@ -1214,7 +1352,7 @@ Regions from the minimum to 6, Departments from 7 to 8, Cities from 9 to the max
                    aria-role="link"
                    rel="noopener"
                    title="Edit on CodePen, open a new tab"
-                   onclick="document.getElementById('form-ods-map-refine-zoom-3').submit()">
+                   onclick="document.getElementById('form-ods-select-3').submit()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-edit">
@@ -1228,32 +1366,95 @@ Regions from the minimum to 6, Departments from 7 to 8, Cities from 9 to the max
 
         <div class="tab-content">
             <div class="js-tabcontent"
-                 id="code-ods-map-refine-zoom-3-html-content">
+                 id="code-ods-select-3-html-content">
                 <div class="highlight">
-                    <pre class="language-html" data-lang="html"><code>&lt;ods-dataset-context context=&#34;regions,depts,comm&#34;
-                     regions-domain=&#34;userclub&#34;
-                     regions-dataset=&#34;regions-et-collectivites-doutre-mer-france&#34;
-                     depts-domain=&#34;userclub&#34;
-                     depts-dataset=&#34;departements-et-collectivites-doutre-mer-france&#34;
-                     comm-domain=&#34;userclub&#34;
-                     comm-dataset=&#34;communes-et-arrondissements-municipaux-france&#34;&gt;
-    &lt;ods-map location=&#34;5,44.73113,4.21875&#34; style=&#34;height:560px&#34;&gt;
-        &lt;ods-map-layer context=&#34;regions&#34;
-                       color=&#34;#3D3D3D&#34;
-                       show-zoom-max=&#34;6&#34;&gt;
-        &lt;/ods-map-layer&gt;
-        &lt;ods-map-layer context=&#34;depts&#34;
-                       color=&#34;#3D3D3D&#34;
-                       show-zoom-min=&#34;7&#34;
-                       show-zoom-max=&#34;8&#34;&gt;
-        &lt;/ods-map-layer&gt;
-        &lt;ods-map-layer context=&#34;comm&#34;
-                       color=&#34;#c0c0c0&#34;
-                       show-zoom-min=&#34;9&#34;&gt;
-        &lt;/ods-map-layer&gt;
-    &lt;/ods-map&gt;
-&lt;/ods-dataset-context&gt;
-</code></pre>
+                    <pre class="language-html" data-lang="html"><code>&lt;div&gt;
+    &lt;ods-dataset-context context=&#34;evenementspublicsopenagenda,secondarycontext&#34;
+                         evenementspublicsopenagenda-dataset=&#34;evenements-publics-openagenda&#34;
+                         evenementspublicsopenagenda-parameters=&#34;{&#39;disjunctive.region&#39;:true}&#34;
+                         evenementspublicsopenagenda-domain=&#34;userclub&#34;
+                         secondarycontext-dataset=&#34;evenements-publics-openagenda&#34;
+                         secondarycontext-parameters=&#34;{&#39;disjunctive.region&#39;:true}&#34;
+                         secondarycontext-domain=&#34;userclub&#34;&gt;
+        &lt;div class=&#34;row&#34;
+             ods-analysis=&#34;regions&#34;
+             ods-analysis-context=&#34;evenementspublicsopenagenda&#34;
+             ods-analysis-x=&#34;region&#34;
+             ods-analysis-serie-count=&#34;COUNT()&#34;
+             ods-analysis-sort=&#34;count&#34;
+             ods-analysis-max=&#34;200&#34;&gt;
+            &lt;div class=&#34;col-md-3 col-sm-6 mb&#34; ng-if=&#34;true&#34; ng-init=&#34;selection&#34;&gt;
+                &lt;h3&gt;
+                    Simplest mode, with label and value modifier on the X axis
+                &lt;/h3&gt;
+                &lt;ods-select options=&#34;regions.results&#34;
+                            selected-values=&#34;selection&#34;
+                            label-modifier=&#34;x&#34;
+                            value-modifier=&#34;x&#34;
+                            placeholder=&#34;Pick a region&#34;&gt;&lt;/ods-select&gt;
+                &lt;h4&gt;Input:&lt;/h4&gt;
+                &lt;pre ng-bind=&#34;regions|json&#34;&gt;&lt;/pre&gt;
+                &lt;h4&gt;Selection:&lt;/h4&gt;
+                &lt;pre ng-bind=&#34;selection|json&#34;&gt;&lt;/pre&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;col-md-3 col-sm-6 mb&#34; ng-if=&#34;true&#34; ng-init=&#34;selection&#34;&gt;
+                &lt;h3&gt;
+                    Expression in the label-modifier
+                &lt;/h3&gt;
+                &lt;ods-select options=&#34;regions.results&#34;
+                            selected-values=&#34;selection&#34;
+                            label-modifier=&#34;x &#43; &#39; - &#39; &#43; (count | number) &#43; &#39; events&#39;&#34;
+                            value-modifier=&#34;x&#34;
+                            placeholder=&#34;Pick a region&#34;&gt;&lt;/ods-select&gt;
+                &lt;h4&gt;Input:&lt;/h4&gt;
+                &lt;pre ng-bind=&#34;regions|json&#34;&gt;&lt;/pre&gt;
+                &lt;h4&gt;Selection:&lt;/h4&gt;
+                &lt;pre ng-bind=&#34;selection|json&#34;&gt;&lt;/pre&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;col-md-3 col-sm-6 mb&#34; ng-if=&#34;true&#34;&gt;
+                &lt;h3&gt;
+                    Use the selection to refine the dataset through selected-values parameter
+                &lt;/h3&gt;
+                &lt;ods-select options=&#34;regions.results&#34;
+                            selected-values=&#34;evenementspublicsopenagenda.parameters[&#39;refine.region&#39;]&#34;
+                            label-modifier=&#34;x &#43; &#39; - &#39; &#43; (count | number) &#43; &#39; events&#39;&#34;
+                            value-modifier=&#34;x&#34;
+                            placeholder=&#34;Pick a region&#34;&gt;&lt;/ods-select&gt;
+                &lt;ods-table context=&#34;evenementspublicsopenagenda&#34; displayed-fields=&#34;department&#34;&gt;&lt;/ods-table&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;col-md-3 col-sm-6 mb&#34; ng-if=&#34;true&#34; ng-init=&#34;selection&#34;&gt;
+                &lt;h3&gt;
+                    More advanced: refine the dataset with an AngularJs expression
+                &lt;/h3&gt;
+                &lt;ods-select options=&#34;regions.results&#34;
+                            selected-values=&#34;selection&#34;
+                            label-modifier=&#34;x &#43; &#39; - &#39; &#43; (count | number) &#43; &#39; events&#39;&#34;
+                            value-modifier=&#34;x&#34;
+                            placeholder=&#34;Pick a region&#34;&gt;&lt;/ods-select&gt;
+                {{ secondarycontext.parameters[&#39;refine.region&#39;] = selection; &#39;&#39; }}
+                &lt;ods-table context=&#34;secondarycontext&#34; displayed-fields=&#34;department&#34;&gt;&lt;/ods-table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/ods-dataset-context&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+            
+            <div class="js-tabcontent"
+                 id="code-ods-select-3-css-content">
+                <div class="highlight">
+                    <pre class="language-css" data-lang="css"><code>/** DO NOT COPY **/
+/* the CSS is only for a better reading of the demo */
+.mb {
+    margin-bottom: 30px;
+}
+h3 {
+    height: 60px;
+}
+.odswidget-select {
+    margin-bottom: 25px;
+}</code></pre>
                 </div>
             </div>
             
@@ -1264,7 +1465,7 @@ Regions from the minimum to 6, Departments from 7 to 8, Cities from 9 to the max
 <script type="text/javascript">
     window.addEventListener("DOMContentLoaded", () => {
         var loopId = setInterval(() => {
-            iframeId = "iframe-ods-map-refine-zoom-3";
+            iframeId = "iframe-ods-select-3";
             iframe = document.getElementById(iframeId);
              
             size =  null 
